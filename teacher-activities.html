@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades - Professor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-layout">
+        <header class="header">
+            <div class="logo">
+                <img src=img/scratch.png height=150 width=150 alt="Scratch Logo" id="scratch-logo">
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="database.html">Banco de Dados</a></li>
+                    <li><a href="teacher-diary.html">Diário de Classe</a></li>
+                    <li><a href="teacher-materials.html">Materiais</a></li>
+                    <li><a href="teacher-activities.html" class="active">Atividades</a></li>
+                    <li class="dropdown">
+                        <a href="#">Links Externos ▼</a>
+                        <div class="dropdown-content">
+                            <a href="https://scratch.mit.edu/" target="_blank">Scratch Website</a>
+                            <a href="https://scratch.mit.edu/projects/editor/" target="_blank">Editor do Scratch</a>
+                            <a href="https://scratch.mit.edu/ideas" target="_blank">Ideias de Projetos</a>
+                            <a href="https://www.youtube.com/results?search_query=scratch+tutorial+português" target="_blank">Tutoriais YouTube</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Informações ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#">Sobre o Curso</a>
+                            <a href="#">Contato</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar">👨‍🏫</div>
+            </div>
+        </header>
+        
+        <main class="content">
+            <h1 class="page-title">Gerenciar Atividades</h1>
+            
+            <!-- Estatísticas das Atividades -->
+            <div class="activities-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalActivities">5</div>
+                    <div class="stat-label">Atividades Criadas</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" id="totalSubmissions">12</div>
+                    <div class="stat-label">Respostas Enviadas</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" id="pendingReviews">3</div>
+                    <div class="stat-label">Aguardando Revisão</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number" id="averageScore">8.5</div>
+                    <div class="stat-label">Nota Média</div>
+                </div>
+            </div>
+            
+            <!-- Lista de Atividades -->
+            <div class="activities-management">
+                <div class="section-header">
+                    <h2>📝 Atividades do Curso</h2>
+                    <div class="activity-filters">
+                        <select id="filterStatus">
+                            <option value="all">Todas as Atividades</option>
+                            <option value="pending">Pendentes</option>
+                            <option value="reviewed">Revisadas</option>
+                        </select>
+                        <select id="filterLesson">
+                            <option value="all">Todas as Aulas</option>
+                            <option value="aula1">Aula 1</option>
+                            <option value="aula2">Aula 2</option>
+                            <option value="aula3">Aula 3</option>
+                            <option value="aula4">Aula 4</option>
+                            <option value="aula5">Aula 5</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-title">
+                                <h3>📚 Aula 1 - Introdução ao Scratch</h3>
+                                <span class="activity-date">Criada em 15/06/2025</span>
+                            </div>
+                            <div class="activity-status">
+                                <span class="status-badge active">Ativa</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">👥</span>
+                                <span>4/4 alunos responderam</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>Nota média: 8.2</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">📊</span>
+                                <span>5 perguntas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-actions">
+                            <button class="action-btn small" onclick="viewResponses('aula1')">👁️ Ver Respostas</button>
+                            <button class="action-btn small secondary" onclick="editActivity('aula1')">✏️ Editar</button>
+                            <button class="action-btn small" onclick="exportActivity('aula1')">📊 Relatório</button>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-title">
+                                <h3>🎮 Aula 2 - Primeiros Passos</h3>
+                                <span class="activity-date">Criada em 18/06/2025</span>
+                            </div>
+                            <div class="activity-status">
+                                <span class="status-badge active">Ativa</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">👥</span>
+                                <span>3/4 alunos responderam</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>Nota média: 7.8</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">📊</span>
+                                <span>4 perguntas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-actions">
+                            <button class="action-btn small" onclick="viewResponses('aula2')">👁️ Ver Respostas</button>
+                            <button class="action-btn small secondary" onclick="editActivity('aula2')">✏️ Editar</button>
+                            <button class="action-btn small" onclick="exportActivity('aula2')">📊 Relatório</button>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-title">
+                                <h3>🚀 Aula 3 - Movimentos e Animações</h3>
+                                <span class="activity-date">Criada em 25/06/2025</span>
+                            </div>
+                            <div class="activity-status">
+                                <span class="status-badge pending">Pendente</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">👥</span>
+                                <span>2/4 alunos responderam</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>Aguardando respostas</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">📊</span>
+                                <span>6 perguntas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-actions">
+                            <button class="action-btn small" onclick="viewResponses('aula3')">👁️ Ver Respostas</button>
+                            <button class="action-btn small secondary" onclick="editActivity('aula3')">✏️ Editar</button>
+                            <button class="action-btn small" onclick="exportActivity('aula3')">📊 Relatório</button>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-title">
+                                <h3>🎨 Aula 4 - Sons e Efeitos</h3>
+                                <span class="activity-date">Criada em 30/06/2025</span>
+                            </div>
+                            <div class="activity-status">
+                                <span class="status-badge draft">Rascunho</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">👥</span>
+                                <span>0/4 alunos responderam</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>Não publicada</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">📊</span>
+                                <span>3 perguntas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-actions">
+                            <button class="action-btn small secondary" onclick="editActivity('aula4')">✏️ Editar</button>
+                            <button class="action-btn small" onclick="publishActivity('aula4')">🚀 Publicar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <div class="activity-title">
+                                <h3>🏆 Aula 5 - Projeto Final</h3>
+                                <span class="activity-date">Criada em 02/07/2025</span>
+                            </div>
+                            <div class="activity-status">
+                                <span class="status-badge draft">Rascunho</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">👥</span>
+                                <span>0/4 alunos responderam</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">⭐</span>
+                                <span>Não publicada</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">📊</span>
+                                <span>8 perguntas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-actions">
+                            <button class="action-btn small secondary" onclick="editActivity('aula5')">✏️ Editar</button>
+                            <button class="action-btn small" onclick="publishActivity('aula5')">🚀 Publicar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ações Gerais -->
+            <div class="general-actions">
+                <button class="action-btn primary" onclick="createNewActivity()">➕ Nova Atividade</button>
+                <button class="action-btn secondary" onclick="exportAllActivities()">📊 Relatório Geral</button>
+                <button class="action-btn secondary" onclick="manageGrades()">📝 Gerenciar Notas</button>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal de Respostas -->
+    <div id="responsesModal" class="modal hidden">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="modalTitle">👁️ Respostas da Atividade</h3>
+                <button class="close-btn" onclick="closeResponsesModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="responsesContent">
+                    <!-- Conteúdo será carregado dinamicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="action-btn secondary" onclick="closeResponsesModal()">Fechar</button>
+                <button class="action-btn primary" onclick="exportResponses()">📊 Exportar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Funções para gerenciar atividades
+        function viewResponses(activityId) {
+            const modal = document.getElementById('responsesModal');
+            const title = document.getElementById('modalTitle');
+            const content = document.getElementById('responsesContent');
+            
+            title.textContent = `👁️ Respostas - ${activityId.toUpperCase()}`;
+            
+            // Simular dados de respostas
+            const responses = getActivityResponses(activityId);
+            
+            content.innerHTML = `
+                <div class="responses-summary">
+                    <h4>📊 Resumo das Respostas</h4>
+                    <div class="summary-stats">
+                        <div class="summary-item">
+                            <span class="summary-label">Total de Respostas:</span>
+                            <span class="summary-value">${responses.length}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Taxa de Participação:</span>
+                            <span class="summary-value">${Math.round((responses.length / 4) * 100)}%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="responses-list">
+                    ${responses.map(response => `
+                        <div class="response-card">
+                            <div class="response-header">
+                                <div class="student-info">
+                                    <span class="student-name">${response.student}</span>
+                                    <span class="response-date">${response.date}</span>
+                                </div>
+                                <div class="response-grade">
+                                    <span class="grade-label">Nota:</span>
+                                    <input type="number" class="grade-input" value="${response.grade}" min="0" max="10" step="0.1">
+                                </div>
+                            </div>
+                            <div class="response-content">
+                                ${response.answers.map((answer, index) => `
+                                    <div class="answer-item">
+                                        <div class="question-number">Pergunta ${index + 1}:</div>
+                                        <div class="answer-text">${answer}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function getActivityResponses(activityId) {
+            // Simular dados de respostas dos alunos
+            const mockResponses = {
+                aula1: [
+                    {
+                        student: "Fulano de Tal",
+                        date: "20/06/2025",
+                        grade: 8.5,
+                        answers: [
+                            "Lógica de programação é a forma de pensar para resolver problemas usando computadores...",
+                            "Scratch é uma linguagem visual que usa blocos para ensinar programação...",
+                            "Poderia ter mais exemplos práticos",
+                            "Semáforos, elevadores, jogos, aplicativos...",
+                            "Gostaria de criar um jogo de aventura"
+                        ]
+                    },
+                    {
+                        student: "Maria Santos",
+                        date: "20/06/2025",
+                        grade: 9.0,
+                        answers: [
+                            "É uma sequência lógica de instruções para resolver problemas...",
+                            "Scratch é uma ferramenta educacional para aprender programação...",
+                            "Mais tempo para prática",
+                            "Carros autônomos, robôs, sistemas de segurança...",
+                            "Quero fazer uma animação interativa"
+                        ]
+                    }
+                ],
+                aula2: [
+                    {
+                        student: "João Oliveira",
+                        date: "22/06/2025",
+                        grade: 7.5,
+                        answers: [
+                            "Aprendi sobre sprites e movimentos básicos...",
+                            "Os blocos de movimento são muito intuitivos...",
+                            "Preciso de mais exemplos"
+                        ]
+                    }
+                ]
+            };
+            
+            return mockResponses[activityId] || [];
+        }
+        
+        function closeResponsesModal() {
+            const modal = document.getElementById('responsesModal');
+            modal.classList.add('hidden');
+            
+            // Limpar conteúdo para evitar problemas
+            document.getElementById('responsesContent').innerHTML = '';
+        }
+        
+        function editActivity(activityId) {
+            alert(`Editando atividade: ${activityId}`);
+            // Implementar edição de atividade
+        }
+        
+        function exportActivity(activityId) {
+            alert(`Exportando relatório da atividade: ${activityId}`);
+            // Implementar exportação
+        }
+        
+        function publishActivity(activityId) {
+            if (confirm(`Publicar atividade ${activityId}? Os alunos poderão visualizá-la.`)) {
+                alert(`Atividade ${activityId} publicada com sucesso!`);
+                // Atualizar status da atividade
+            }
+        }
+        
+        function createNewActivity() {
+            alert('Criando nova atividade...');
+            // Implementar criação de atividade
+        }
+        
+        function exportAllActivities() {
+            alert('Exportando relatório geral das atividades...');
+            // Implementar exportação geral
+        }
+        
+        function manageGrades() {
+            alert('Abrindo gerenciador de notas...');
+            // Implementar gerenciamento de notas
+        }
+        
+        function exportResponses() {
+            alert('Exportando respostas...');
+            // Implementar exportação de respostas
+        }
+        
+        // Filtros
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterStatus = document.getElementById('filterStatus');
+            const filterLesson = document.getElementById('filterLesson');
+            
+            filterStatus.addEventListener('change', applyFilters);
+            filterLesson.addEventListener('change', applyFilters);
+        });
+        
+        function applyFilters() {
+            // Implementar filtros das atividades
+            console.log('Aplicando filtros...');
+        }
+
+        // Fechar modal ao clicar fora dele
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('responsesModal');
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeResponsesModal();
+                }
+            });
+            
+            // Fechar modal com tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeResponsesModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

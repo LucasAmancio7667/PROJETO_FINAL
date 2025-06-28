@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - Aula 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-layout">
+        <header class="header">
+            <div class="logo">
+                <img src=img/scratch.png height=150 width=150 alt="Scratch Logo" id="scratch-logo">
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard.html">Diário de Classe</a></li>
+                    <li><a href="materials.html">Materiais</a></li>
+                    <li><a href="activities.html" class="active">Atividades</a></li>
+                    <li class="dropdown">
+                        <a href="#">Links Externos ▼</a>
+                        <div class="dropdown-content">
+                            <a href="https://scratch.mit.edu/" target="_blank">Scratch Website</a>
+                            <a href="https://scratch.mit.edu/projects/editor/" target="_blank">Editor do Scratch</a>
+                            <a href="https://scratch.mit.edu/ideas" target="_blank">Ideias de Projetos</a>
+                            <a href="https://www.youtube.com/results?search_query=scratch+tutorial+português" target="_blank">Tutoriais YouTube</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Informações ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#">Sobre o Curso</a>
+                            <a href="#">Contato</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar">👤</div>
+            </div>
+        </header>
+        
+        <main class="content">
+            <div class="activity-container">
+                <div class="activity-title">Atividade - Aula 1</div>
+                
+                <!-- PÁGINA 1: PERGUNTAS DA ATIVIDADE -->
+                <div id="page1" class="activity-page">
+                    <form id="activityForm">
+                        <div class="question">
+                            <h3>1. Descreva o que é lógica de programação, e o que é uma linguagem de programação:</h3>
+                            <textarea name="question1" placeholder="Digite sua resposta aqui..."></textarea>
+                        </div>
+                        
+                        <div class="question">
+                            <h3>2. Descreva o que é uma linguagem de programação em blocos, o que é o Scratch e para que ele é utilizado?</h3>
+                            <textarea name="question2" placeholder="Digite sua resposta aqui..."></textarea>
+                        </div>
+                        
+                        <div class="question">
+                            <h3>3. O que poderia ser melhorado na aula para torná-la mais proveitosa para você? <span style="color: red;">*</span></h3>
+                            <textarea name="question3" placeholder="Digite sua resposta aqui..." required></textarea>
+                        </div>
+                        
+                        <div class="question">
+                            <h3>4. Quais ações do dia a dia você acha que podem ser controladas por computadores?</h3>
+                            <textarea name="question4" placeholder="Digite sua resposta aqui..."></textarea>
+                        </div>
+
+                        <div class="question">
+                            <h3>5. O que você gostaria de ensinar o computador a fazer?</h3>
+                            <textarea name="question5" placeholder="Digite sua resposta aqui..."></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- PÁGINA 2: FEEDBACK -->
+                <div id="page2" class="activity-page hidden">
+                    <div class="feedback-title" style="background: linear-gradient(45deg, #9c27b0, #673ab7); margin-bottom: 30px;">Feedback - Aula 1</div>
+                    
+                    <form id="feedbackForm">
+                        <div class="question">
+                            <h3>1. O que você achou do conteúdo apresentado na aula? <span style="color: red;">*</span></h3>
+                            <div class="rating-question">
+                                <div class="rating-scale">
+                                    <div class="rating-option">
+                                        <span>1</span>
+                                        <input type="radio" name="content_rating" value="1" required>
+                                    </div>
+                                    <div class="rating-option">
+                                        <span>2</span>
+                                        <input type="radio" name="content_rating" value="2">
+                                    </div>
+                                    <div class="rating-option">
+                                        <span>3</span>
+                                        <input type="radio" name="content_rating" value="3">
+                                    </div>
+                                    <div class="rating-option">
+                                        <span>4</span>
+                                        <input type="radio" name="content_rating" value="4">
+                                    </div>
+                                    <div class="rating-option">
+                                        <span>5</span>
+                                        <input type="radio" name="content_rating" value="5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="question">
+                            <h3>2. Como você avalia a aula? <span style="color: red;">*</span></h3>
+                            <div class="multiple-choice">
+                                <div class="choice-option">
+                                    <input type="radio" name="class_evaluation" value="excelente" required>
+                                    <label>Excelente</label>
+                                </div>
+                                <div class="choice-option">
+                                    <input type="radio" name="class_evaluation" value="boa">
+                                    <label>Boa</label>
+                                </div>
+                                <div class="choice-option">
+                                    <input type="radio" name="class_evaluation" value="regular">
+                                    <label>Regular</label>
+                                </div>
+                                <div class="choice-option">
+                                    <input type="radio" name="class_evaluation" value="ruim">
+                                    <label>Precisa melhorar</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button class="nav-btn" id="prevBtn" onclick="previousPage()" style="display: none;">ANTERIOR</button>
+                    <span class="page-info" id="pageInfo">Página 1/2</span>
+                    <button class="nav-btn" id="nextBtn" onclick="nextPage()">PRÓXIMO</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        let currentPage = 1;
+        const totalPages = 2;
+
+        function showPage(pageNum) {
+            // Esconder todas as páginas
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.add('hidden');
+            
+            // Mostrar página atual
+            document.getElementById(`page${pageNum}`).classList.remove('hidden');
+            
+            // Atualizar info da página
+            document.getElementById('pageInfo').textContent = `Página ${pageNum}/${totalPages}`;
+            
+            // Controlar botões
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (pageNum === 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.textContent = 'PRÓXIMO';
+            } else if (pageNum === totalPages) {
+                prevBtn.style.display = 'block';
+                nextBtn.textContent = 'ENVIAR';
+            } else {
+                prevBtn.style.display = 'block';
+                nextBtn.textContent = 'PRÓXIMO';
+            }
+        }
+
+        function nextPage() {
+            if (currentPage === 1) {
+                // Validar atividade antes de ir para próxima página
+                const activityForm = document.getElementById('activityForm');
+                const requiredFields = activityForm.querySelectorAll('[required]');
+                let allFilled = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        allFilled = false;
+                        field.style.borderColor = 'red';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+
+                if (!allFilled) {
+                    alert('Por favor, preencha todos os campos obrigatórios da atividade (marcados com *)');
+                    return;
+                }
+
+                currentPage++;
+                showPage(currentPage);
+            } else if (currentPage === totalPages) {
+                // Enviar tudo
+                submitCompleteActivity();
+            }
+        }
+
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        function submitCompleteActivity() {
+            // Validar feedback
+            const feedbackForm = document.getElementById('feedbackForm');
+            const requiredFields = feedbackForm.querySelectorAll('[required]');
+            let allFilled = true;
+
+            requiredFields.forEach(field => {
+                if (field.type === 'radio') {
+                    const radioGroup = feedbackForm.querySelectorAll(`[name="${field.name}"]`);
+                    const isGroupChecked = Array.from(radioGroup).some(radio => radio.checked);
+                    if (!isGroupChecked) {
+                        allFilled = false;
+                    }
+                }
+            });
+
+            if (!allFilled) {
+                alert('Por favor, responda todas as perguntas obrigatórias do feedback (marcadas com *)');
+                return;
+            }
+
+            // Coletar dados da atividade
+            const activityData = new FormData(document.getElementById('activityForm'));
+            const activity = {};
+            for (const [key, value] of activityData.entries()) {
+                activity[key] = value;
+            }
+
+            // Coletar dados do feedback
+            const feedbackData = new FormData(document.getElementById('feedbackForm'));
+            const feedback = {};
+            for (const [key, value] of feedbackData.entries()) {
+                feedback[key] = value;
+            }
+
+            // Salvar tudo
+            localStorage.setItem('activity_aula1', JSON.stringify(activity));
+            localStorage.setItem('feedback_aula1', JSON.stringify(feedback));
+
+            alert('Atividade e feedback enviados com sucesso! 🎉');
+            window.location.href = 'activities.html';
+        }
+
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(1);
+        });
+    </script>
+</body>
+</html>

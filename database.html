@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Dados - Curso de Scratch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-layout">
+        <header class="header">
+            <div class="logo">
+                <img src=img/scratch.png height=150 width=150 alt="Scratch Logo" id="scratch-logo">
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="database.html" class="active">Banco de Dados</a></li>
+                    <li><a href="teacher-diary.html">Diário de Classe</a></li>
+                    <li><a href="teacher-materials.html">Materiais</a></li>
+                    <li><a href="teacher-activities.html">Atividades</a></li>
+                    <li class="dropdown">
+                        <a href="#">Links Externos ▼</a>
+                        <div class="dropdown-content">
+                            <a href="https://scratch.mit.edu/" target="_blank">Scratch Website</a>
+                            <a href="https://scratch.mit.edu/projects/editor/" target="_blank">Editor do Scratch</a>
+                            <a href="https://scratch.mit.edu/ideas" target="_blank">Ideias de Projetos</a>
+                            <a href="https://www.youtube.com/results?search_query=scratch+tutorial+português" target="_blank">Tutoriais YouTube</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Informações ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#">Sobre o Curso</a>
+                            <a href="#">Contato</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar">👨‍🏫</div>
+            </div>
+        </header>
+        
+        <main class="content">
+            <h1 class="page-title">Banco de Dados</h1>
+            
+            <div class="database-controls">
+                <div class="table-selector">
+                    <label for="tableSelect"><strong>Tabela:</strong></label>
+                    <select id="tableSelect" onchange="changeTable()">
+                        <option value="info_alunos">info_alunos</option>
+                        <option value="status_alunos">status_alunos</option>
+                        <option value="login_alunos">login_alunos</option>
+                        <option value="atividades_alunos">atividades_alunos</option>
+                    </select>
+                </div>
+                
+                <div class="search-box">
+                    <label for="searchInput"><strong>Pesquisar:</strong></label>
+                    <input type="text" id="searchInput" placeholder="Digite para pesquisar..." onkeyup="searchTable()">
+                </div>
+            </div>
+            
+            <!-- Tabela info_alunos -->
+            <div id="table_info_alunos" class="database-table-container">
+                <table class="database-table">
+                    <thead>
+                        <tr>
+                            <th>turma</th>
+                            <th>nome</th>
+                            <th>email</th>
+                            <th>telefone</th>
+                            <th>nascimento</th>
+                            <th>rg</th>
+                            <th>cpf</th>
+                            <th>endereco</th>
+                            <th>escolaridade</th>
+                            <th>escola</th>
+                            <th>responsavel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25.1 - T1</td>
+                            <td>Fulano de Tal</td>
+                            <td>fulanodetal@gmail.com</td>
+                            <td>81912345678</td>
+                            <td>01/01/2010</td>
+                            <td>1234567</td>
+                            <td>12345678910</td>
+                            <td>Rua dos Bobos - nº 0</td>
+                            <td>8º ano</td>
+                            <td>Pública</td>
+                            <td>Fulana de Tal</td>
+                        </tr>
+                        <tr>
+                            <td>25.1 - T1</td>
+                            <td>João Todynho</td>
+                            <td>joaotodynho@gmail.com</td>
+                            <td>81923456789</td>
+                            <td>02/01/2010</td>
+                            <td>2345678</td>
+                            <td>23456789012</td>
+                            <td>Rua dos Bobos - nº 1</td>
+                            <td>8º ano</td>
+                            <td>Pública</td>
+                            <td>João Todynha</td>
+                        </tr>
+                        <tr>
+                            <td>25.1 - T1</td>
+                            <td>Ciclano da Silva Sauro</td>
+                            <td>ciclanodasilvasauro@gmail.com</td>
+                            <td>81934567890</td>
+                            <td>03/01/2010</td>
+                            <td>3456789</td>
+                            <td>34567890123</td>
+                            <td>Rua dos Bobos - nº 2</td>
+                            <td>8º ano</td>
+                            <td>Privada</td>
+                            <td>Ciclana da Silva Sauro</td>
+                        </tr>
+                        <tr>
+                            <td>25.1 - T1</td>
+                            <td>Beltrano Pereira</td>
+                            <td>beltranopereira@gmail.com</td>
+                            <td>81945678901</td>
+                            <td>04/01/2010</td>
+                            <td>4567890</td>
+                            <td>45678901234</td>
+                            <td>Rua dos Bobos - nº 3</td>
+                            <td>9º ano</td>
+                            <td>Pública</td>
+                            <td>Beltrana Pereira</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tabela status_alunos -->
+            <div id="table_status_alunos" class="database-table-container hidden">
+                <table class="database-table">
+                    <thead>
+                        <tr>
+                            <th>nome</th>
+                            <th>status</th>
+                            <th>frequencia</th>
+                            <th>atividades_enviadas</th>
+                            <th>ultima_atividade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fulano de Tal</td>
+                            <td>Ativo</td>
+                            <td>80%</td>
+                            <td>3/5</td>
+                            <td>Aula 3</td>
+                        </tr>
+                        <tr>
+                            <td>João Todynho</td>
+                            <td>Ativo</td>
+                            <td>90%</td>
+                            <td>4/5</td>
+                            <td>Aula 4</td>
+                        </tr>
+                        <tr>
+                            <td>Ciclano da Silva Sauro</td>
+                            <td>Ativo</td>
+                            <td>100%</td>
+                            <td>5/5</td>
+                            <td>Aula 5</td>
+                        </tr>
+                        <tr>
+                            <td>Beltrano Pereira</td>
+                            <td>Ativo</td>
+                            <td>70%</td>
+                            <td>2/5</td>
+                            <td>Aula 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tabela login_alunos -->
+            <div id="table_login_alunos" class="database-table-container hidden">
+                <table class="database-table">
+                    <thead>
+                        <tr>
+                            <th>usuario</th>
+                            <th>nome</th>
+                            <th>ultimo_login</th>
+                            <th>total_logins</th>
+                            <th>status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>programacao</td>
+                            <td>Fulano de Tal</td>
+                            <td>27/06/2025 19:30</td>
+                            <td>15</td>
+                            <td>Online</td>
+                        </tr>
+                        <tr>
+                            <td>aluno1</td>
+                            <td>Maria Santos</td>
+                            <td>26/06/2025 14:20</td>
+                            <td>12</td>
+                            <td>Offline</td>
+                        </tr>
+                        <tr>
+                            <td>aluno2</td>
+                            <td>João Oliveira</td>
+                            <td>25/06/2025 16:45</td>
+                            <td>8</td>
+                            <td>Offline</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tabela atividades_alunos -->
+            <div id="table_atividades_alunos" class="database-table-container hidden">
+                <table class="database-table">
+                    <thead>
+                        <tr>
+                            <th>nome</th>
+                            <th>aula_1</th>
+                            <th>aula_2</th>
+                            <th>aula_3</th>
+                            <th>aula_4</th>
+                            <th>aula_5</th>
+                            <th>total_enviadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fulano de Tal</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>❌ Pendente</td>
+                            <td>❌ Pendente</td>
+                            <td>3/5</td>
+                        </tr>
+                        <tr>
+                            <td>João Todynho</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>❌ Pendente</td>
+                            <td>4/5</td>
+                        </tr>
+                        <tr>
+                            <td>Ciclano da Silva Sauro</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>5/5</td>
+                        </tr>
+                        <tr>
+                            <td>Beltrano Pereira</td>
+                            <td>✅ Enviada</td>
+                            <td>✅ Enviada</td>
+                            <td>❌ Pendente</td>
+                            <td>❌ Pendente</td>
+                            <td>❌ Pendente</td>
+                            <td>2/5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="database-actions">
+                <button class="action-btn primary" onclick="addRecord()">ADICIONAR</button>
+                <button class="action-btn secondary" onclick="editRecord()">EDITAR</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        function changeTable() {
+            const selectedTable = document.getElementById('tableSelect').value;
+            
+            // Esconder todas as tabelas
+            document.querySelectorAll('.database-table-container').forEach(table => {
+                table.classList.add('hidden');
+            });
+            
+            // Mostrar tabela selecionada
+            document.getElementById(`table_${selectedTable}`).classList.remove('hidden');
+        }
+        
+        function searchTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const activeTable = document.querySelector('.database-table-container:not(.hidden)');
+            const rows = activeTable.querySelectorAll('tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function addRecord() {
+            const selectedTable = document.getElementById('tableSelect').value;
+            alert(`Adicionar novo registro na tabela: ${selectedTable}`);
+            // Implementar modal de adição
+        }
+        
+        function editRecord() {
+            const selectedTable = document.getElementById('tableSelect').value;
+            alert(`Editar registros da tabela: ${selectedTable}`);
+            // Implementar modal de edição
+        }
+    </script>
+</body>
+</html>

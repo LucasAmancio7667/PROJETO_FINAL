@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Aula 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-layout">
+        <header class="header">
+            <div class="logo">
+                <img src=img/scratch.png height=150 width=150 alt="Scratch Logo" id="scratch-logo">
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard.html">Diário de Classe</a></li>
+                    <li><a href="materials.html">Materiais</a></li>
+                    <li><a href="activities.html" class="active">Atividades</a></li>
+                    <li class="dropdown">
+                        <a href="#">Links Externos ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#">Scratch Website</a>
+                            <a href="#">Tutoriais</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Informações ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#">Sobre o Curso</a>
+                            <a href="#">Contato</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar">👤</div>
+            </div>
+        </header>
+        
+        <main class="content">
+            <div class="activity-container">
+                <div class="feedback-title">Feedback - Aula 1</div>
+                
+                <form id="feedbackForm">
+                    <div class="question">
+                        <h3>1. O que você achou do conteúdo apresentado na aula? <span style="color: red;">*</span></h3>
+                        <div class="rating-question">
+                            <div class="rating-scale">
+                                <div class="rating-option">
+                                    <span>1</span>
+                                    <input type="radio" name="content_rating" value="1" required>
+                                </div>
+                                <div class="rating-option">
+                                    <span>2</span>
+                                    <input type="radio" name="content_rating" value="2">
+                                </div>
+                                <div class="rating-option">
+                                    <span>3</span>
+                                    <input type="radio" name="content_rating" value="3">
+                                </div>
+                                <div class="rating-option">
+                                    <span>4</span>
+                                    <input type="radio" name="content_rating" value="4">
+                                </div>
+                                <div class="rating-option">
+                                    <span>5</span>
+                                    <input type="radio" name="content_rating" value="5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <h3>2. Como você avalia a aula? <span style="color: red;">*</span></h3>
+                        <div class="multiple-choice">
+                            <div class="choice-option">
+                                <input type="radio" name="class_evaluation" value="excelente" required>
+                                <label>Excelente</label>
+                            </div>
+                            <div class="choice-option">
+                                <input type="radio" name="class_evaluation" value="boa">
+                                <label>Boa</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="goBack()">ANTERIOR</button>
+                    <span class="page-info">Página 1/1</span>
+                    <button class="nav-btn" onclick="submitFeedback()">ENVIAR</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
