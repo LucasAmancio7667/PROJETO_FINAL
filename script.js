@@ -55,11 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Check if user is logged in
-  if (window.location.pathname !== "/" && window.location.pathname !== "/index.html") {
-    if (!localStorage.getItem("isLoggedIn")) {
-      window.location.href = "index.html"
-    }
+  const isLoginPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+
+  if (!isLoginPage && !localStorage.getItem("isLoggedIn")) {
+    window.location.href = "index.html";
   }
+
 })
 
 // Navigation functions
