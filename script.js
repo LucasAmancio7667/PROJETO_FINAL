@@ -297,6 +297,11 @@ function toggleMobileMenu() {
   navMenu.classList.toggle("mobile-open")
 }
 
+function abrirWhatsApp() {
+    const whatsappLink = "https://chat.whatsapp.com/GHZuEpQhb5uGFROPWioy9o?mode=ac_c";
+    window.open(whatsappLink, '_blank');
+}
+
 // Add mobile menu styles
 const style = document.createElement("style")
 style.textContent = `
