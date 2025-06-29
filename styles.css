@@ -185,14 +185,9 @@ body {
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4a90e2;
   font-weight: bold;
   cursor: pointer;
 }
